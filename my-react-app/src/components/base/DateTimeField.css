@@ -1,0 +1,54 @@
+.date-time-row {
+  display: flex;
+  
+  align-items: center;
+  margin-bottom: 10px;
+  width: auto;
+  
+}
+
+.report-form-remove-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.report-form-remove-button:hover {
+  background-color: #ff7875;
+}
+
+.report-form-group {
+  flex-grow: 1;
+  margin-right: 10px;
+  width: 50%;
+}
+
+.report-form-group:last-child {
+  margin-right: 0;
+}
+
+.report-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.report-form-group input[type="date"],
+.report-form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.report-form-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  }

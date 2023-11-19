@@ -1,0 +1,210 @@
+/* ReportFormCard.css */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+.report-form-card {
+  direction: rtl;
+  font-family: 'Rubik', sans-serif; /* Hebrew-friendly font */
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.5); /* Brighter background for better contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  height: 95vh;
+  overflow: auto; /* In case content overflows */
+  ;
+}
+
+.report-form-card-content {
+  overflow-y: auto;
+  margin-right: 20%;
+  background-color: #ffffff;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  border-radius: 10px;
+  padding-right: 30px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.date-row-group{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.date-time-row{
+  flex-direction: column;
+}
+.report-form-group {
+  margin-bottom: 1rem;
+}
+
+.report-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333; /* Darker label color for better readability */
+  font-weight: 600; /* Make labels slightly bolder */
+}
+.select-form-row{
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  justify-content: space-evenly;
+}
+.report-form-group input,
+.report-form-group select,
+.report-form-group textarea {
+  width: 100%;
+  padding: 0.75rem; /* Increased padding for better touch targets */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for interactions */
+  text-align: right; /* Aligns text to the right for RTL support */
+}
+.react-select-container{
+  text-align: right;
+}
+.report-form-group input:focus,
+.report-form-group select:focus,
+.report-form-group textarea:focus {
+  border-color: #0056b3; /* Highlight color for focus */
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2); /* Subtle glow effect on focus */
+}
+
+.report-form-group textarea {
+  height: 100px;
+  resize: vertical; /* Allows the user to resize the textarea */
+}
+
+.report-form-submit-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #0056b3; /* Consistent button color */
+  color: white;
+  font-weight: 600; /* Bolder font for button text */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 7vw;
+  margin-bottom: 10px;
+ 
+}
+
+.report-form-submit-button:hover,
+.report-form-row-button:hover {
+  background-color: #043970; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight raise effect on hover */
+}
+
+.report-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.report-form-group {
+  flex-grow: 1;
+  margin-right: 1rem;
+}
+
+.report-form-row-button {
+  padding: 0.5rem 1rem;
+
+  justify-content: right;
+ margin-left: auto;
+width: auto;
+  border-radius: 4px;
+  background-color: #0056b3;
+  color: white;
+  font-weight: 600; /* Consistent with submit button */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.date-time-row {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+}
+
+.report-form-group {
+  flex-grow: 1;
+}
+.report-form-group label,
+.report-form-group input,
+.report-form-group select,
+.report-form-group textarea,
+.report-form-submit-button,
+.report-form-row-button {
+  font-size: 1.1rem; /* Larger font size for better readability */
+  text-align: right; /* Aligns text to the right for RTL support */
+}
+.report-form-group label,
+.report-form-group input,
+.report-form-group select,
+.report-form-group textarea {
+  line-height: 1.0; /* Increases line height */
+}
+
+/* Add some responsiveness to the form */
+@media (max-width: 768px) {
+  .date-time-row, .report-form-row {
+    flex-direction: column;
+  }
+
+  .report-form-row-button,
+  .report-form-submit-button {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+/* Custom Scrollbar Styles */
+.report-form-card::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.report-form-card::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the tracking area */
+  border-radius: 10px;
+}
+
+.report-form-card::-webkit-scrollbar-thumb {
+  background-color: #0056b3; /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+  border: 3px solid #f1f1f1; /* creates padding around scroll thumb */
+}
+
+.report-form-card::-webkit-scrollbar-thumb:hover {
+  background: #043970; /* color when hover */
+}.report-form-remove-button {
+  padding: 0.2rem; /* even less padding */
+  margin-left: 0.5rem; /* maintain some space from the date/time inputs */
+  background-color: #ff3860; /* a color that indicates removal, e.g., a shade of red */
+  color: white; /* white text to stand out on the red background */
+  border: none;
+  border-radius: 50%; /* circular button */
+  cursor: pointer;
+  
+  font-size: 0.7rem; /* smaller font size */
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block; /* for inline placement */
+  width: 1.5rem; /* fixed width */
+  height: 1.5rem; /* fixed height */
+  display: flex; /* enables center alignment of the icon */
+  align-items: center; /* vertical alignment */
+  justify-content: center; /* horizontal alignment */
+}
+
+.report-form-remove-button:hover {
+  background-color: #e12f50; /* slightly darker on hover for feedback */
+}
+
+.report-form-remove-button:focus {
+  outline: none; /* remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(255, 56, 96, 0.5); /* focus shadow that matches button color */
+}

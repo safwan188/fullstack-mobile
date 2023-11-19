@@ -1,0 +1,62 @@
+/* src/components/PropertyFormCard.css */
+.form-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.form-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: right;
+}
+
+.form-submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-submit-button:hover {
+    background-color: #0056b3;
+}
+.search-container input[type="text"] 
+{
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  margin-right: 8px; /* For spacing between the input and the dropdown */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the dropdown list */
+.react-select-container{
+    text-align: right;
+}

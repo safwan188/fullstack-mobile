@@ -1,0 +1,91 @@
+/* ReportDetails.css */
+.reportdetails-container {
+  display: flex;
+  flex-direction: column;
+    direction: rtl;
+    width: 98%;
+  height: 100vh;
+  overflow-y: auto;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color:rgba(255, 255, 255, 0.981);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .reportdetails-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .reportdetail-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .reportdetail-item label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .reportdetail-item span,
+  .reportdetail-item ul {
+    padding: 0.75rem;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    list-style: inside;
+  }
+  
+  .findings-photos .photos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .findings-photos img {
+    width: calc(33.333% - 0.5rem);
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    .report-details-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .findings-photos img {
+      width: 100%;
+    }
+  }
+  .download-button-container {
+    display: relative;
+    flex-direction: row;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add some space above the button */
+  }
+  .btn-download {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-download:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-download:active {
+    background-color: #00408b;
+  }
+  
+  .btn-download:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }

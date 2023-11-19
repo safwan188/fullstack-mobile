@@ -1,0 +1,77 @@
+/* Sidebar.css */
+.sidebar {
+      flex-direction: row;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow  on the left side */
+    background-color: rgba(00, 3A, 7B, 0.776);
+   
+ 
+     width: 10vh;
+     height: 100vh;
+     min-width: 8vw;
+      position: relative;
+     right: 0px;
+     top: 0px;
+     bottom: 0px;
+    z-index: 1000; /* Ensures the sidebar is above other content */
+  }
+  /* Additional styles to ensure the sidebar doesn't overlap with the table */
+  @media (min-width: 768px) {
+    .layout {
+      padding-right: 220px; /* Adjust this value to the width of your sidebar + some extra space */
+    }
+  }
+  
+  /* Adjust the layout when the sidebar is not present or on smaller screens */
+  @media (max-width: 767px) {
+    .sidebar {
+      position: static;
+      width: auto;
+      height: auto;
+      top: auto;
+      padding: 10px;
+    }
+  
+    .layout {
+      padding-right: 0;
+    }
+  }
+  /* Add to existing styles in Sidebar.css */
+.sidebar-nav {
+
+  list-style: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+  margin-top: 20vh; /* Adjust this value to center the sidebar */
+  display: flex; /* Aligns items vertically */
+  flex-direction: column; /* Stack items vertically */
+  height: 100%vh; /* Full height to distribute items evenly */
+  justify-content: center; /* Centers items vertically */
+}
+
+.nav-item {
+  text-align: center; /* Center text horizontally */
+  margin: 10px 0; /* Add some space between navigation items */
+}
+
+.nav-item a {
+ 
+  color: white; /* Inherit text color from parent */
+  text-decoration: none; /* Removes underline from links */
+  display: block; /* Block-level links for easier clicking */
+  padding: 10px 0; /* Adds padding to each link for spacing */
+}
+
+/* Add a hover effect for links */
+.nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background on hover for feedback */
+}
+.logo-container {
+  top: 0px;
+  display: flex;
+  justify-content: center; /* Centers logo horizontally */
+  margin-bottom: 2rem; /* Space between logo and form */
+}
+
+.login-logo {
+  max-width: 100%; /* Ensures the logo is responsive and doesn't overflow its container */
+  height: auto; /* Keeps the aspect ratio of the logo */
+}

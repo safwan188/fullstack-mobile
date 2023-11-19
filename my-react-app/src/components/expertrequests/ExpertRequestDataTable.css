@@ -1,0 +1,162 @@
+/* Updated CSS for .report-table-container1 */
+.expert-data-table-container2 {
+  height: 100vh; /* Example: 75% of the viewport height */
+  overflow-y: auto; /* Enables vertical scrolling if content overflows */
+  padding: 1rem;
+  min-height: 70vh;
+  padding-top: 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: rgba(228, 230, 232, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
+}
+
+.expert-data-table2 {
+  width: 100%; /* Ensure the table stretches to the width of the container */
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.expert-data-table2-header {
+  display: flex;           /* Use flexbox to align children elements */
+  position: sticky;
+  top: 0;
+  padding-right: 1rem;    /* Add padding to the right if needed for spacing */
+  height: auto;             /* Adjust the height if necessary */
+}
+
+/* Sticky table header */
+.expert-data-table2 th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #17202a; /* Ensure the background color is not transparent */
+  color: #ecf0f1;
+  font-weight: 600;
+  padding: 10px;
+  text-align: right;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.expert-data-table2 td {
+  top: 0px;
+  padding: 10px; /* More padding for a spacious look */
+  text-align: right;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.expert-data-2 th {
+  background-color: #263a51; /* Darker shade for header */
+  color: #ecf0f1; /* Soft white for text */
+  font-weight: 600; /* Bolder font for headers */
+}
+
+/* Hover effect for headers */
+.expert-data-table2 th:hover {
+  background-color: #34495e; /* Slightly lighter shade on hover */
+  color: #f1c40f; /* Highlight color for text */
+  cursor: pointer; /* Indicates the header is clickable (if sorting is implemented) */
+  transition: background-color 0.3s, color 0.3s;
+}
+/* Hover effect for individual cell values */
+.expert-data-table2 tbody td:hover {
+  background-color: #c9d5df; /* Lighter background on hover for the cell */
+  color: #333; /* Optionally change the text color on hover */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Zebra striping for rows */
+.expert-data-table2tbody tr:nth-child(odd) {
+  background-color: #f8f9fa; /* Very light gray for subtle striping */
+}
+
+/* Hover effect for rows */
+.expert-data-table2 tbody tr:hover {
+  background-color: #dae0e5; /* Slightly darker gray on hover */
+  transition: background-color 0.3s;
+}
+.expert-data-table2-header{
+  height: 5%;
+}
+.expert-data-table2-empty {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.add-expert-button1{
+ 
+
+  background-color: #3498db; /* Brighter blue for the button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.add-expert-button1:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.accept-button{
+  background-color: #34db45; /* Brighter blue for the button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+.decline-button{
+  background-color: #e42c17; /* Brighter blue for the button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}/* Add some styles for the search container */
+.search-container {
+  margin-bottom: 20px; /* Adjust as needed */
+  text-align: right; /* For RTL languages like Hebrew */
+}
+
+/* Style the search input field */
+.search-container input[type="text"] 
+{
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  margin-right: 8px; /* For spacing between the input and the dropdown */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the dropdown list */
+.search-container select {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* You may want to add some responsiveness to the search bar and DDL */
+@media (max-width: 600px) {
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container input[type="text"],
+  .search-container select {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}

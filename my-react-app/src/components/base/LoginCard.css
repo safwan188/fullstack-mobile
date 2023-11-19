@@ -1,0 +1,107 @@
+.login-card1 {
+  width: 20vw; /* Fixed width for the card */
+  height: auto; /* Full viewport height */
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0px; /* Removed border-radius for full height attachment to the screen */
+  background: white;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed; /* Keeps the card attached to the right */
+  display: flex;
+  justify-content: center; /* This will center .login-content vertically */
+  align-items: center; /* Center horizontally if needed */
+  flex-direction: row;
+  margin-left: 40vw;
+ margin-right: 40vw;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.7); /* Transparent background */
+  transition: margin-left 0.3s; /* Smooth transition for the left margin */
+}
+.login-content {
+  /* Adjust the width as needed to control the form's width */
+  width: auto;
+  /* Add some padding to .login-content if necessary */
+  padding: 2rem;
+  /* This margin-top pushes the entire .login-content up */
+  margin-top: -100px; /* Adjust this value to move up */
+  align-items: center; /* Center horizontally if needed */
+
+}
+.login-card1:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover for depth */
+}
+
+.form-group1 {
+  width: 100%;
+ 
+  margin-bottom: 1rem;
+}
+
+.form-group1 label {
+ 
+  text-align: right;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.form-group1 input {
+
+  width: 90%;
+  text-align: right;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: border-color 0.3s; /* Smooth transition for border color change */
+  margin-left: auto;
+}
+
+.form-group1 input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
+}
+
+.submit-button1 {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4a90e2; /* Solid color for a more professional look */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.3s; /* Smooth transition for button color on hover */
+}
+
+.submit-button1:hover {
+  background-color: #0056b3; /* Darker shade on hover for interaction feedback */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-card1 {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+}
+/* Add this to your existing CSS */
+.logo-container {
+  display: flex;
+  justify-content: center; /* Centers logo horizontally */
+  margin-bottom: 2rem; /* Space between logo and form */
+}
+
+.login-logo {
+  max-width: 100%; /* Ensures the logo is responsive and doesn't overflow its container */
+  height: auto; /* Keeps the aspect ratio of the logo */
+}
+.spacer { 
+  flex: 0 0 -4vh; /* Adjust the 10vh value to push the content down more or less */
+  top:0px;
+}
