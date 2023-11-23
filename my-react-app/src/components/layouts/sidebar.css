@@ -12,6 +12,7 @@
      right: 0px;
      top: 0px;
      bottom: 0px;
+     overflow-y: none;
     z-index: 1000; /* Ensures the sidebar is above other content */
   }
   /* Additional styles to ensure the sidebar doesn't overlap with the table */

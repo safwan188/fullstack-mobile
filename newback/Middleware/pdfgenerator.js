@@ -10,8 +10,8 @@ const generatePDF = async (report, outputPath) => {
     const doc = new PDFDocument();
     let output = fs.createWriteStream(outputPath);
     doc.pipe(output);
-    const footerImagePath = 'C:\\Users\\safwan\\Pictures\\Screenshots\\Screenshot 2023-10-31 022207.png';
-    const headerImagePath = 'C:\\Users\\safwan\\Pictures\\Screenshots\\Screenshot 2023-10-31 022152.png';
+    const footerImagePath = './uploads/equipment/footer.png';
+    const headerImagePath = './uploads/equipment/header.png';
     const footerImageY = doc.page.height - 60; // Position the footer image 60 units from the bottom of the page
 
     const hebrewFontPath = './font/arial-hebrew.ttf'; // Adjust the path as needed
@@ -173,9 +173,9 @@ doc.fillColor('black')
   // Increment yPosition for the next block of text
 
    let additionalTextLines = [
-    'אני נותן חוות דעתי זו במקום עדות בבית משפט ואני מצהיר בזאת כי ידוע לי היטב שלעניין הוראת ',
-    'החוק הפלילי בדבר עדות שקר בשבועה בבית המשפט. דין חוות הדעת זו כשהיא חתומה על ידי -כדין ',
-    'עדות בשבועה שנתתי בבימ"ש . ',
+    ' אני נותן חוות דעתי זו במקום עדות בבית משפט ואני מצהיר בזאת כי ידוע לי היטב שלעניין הוראת ',
+    ' החוק הפלילי בדבר עדות שקר בשבועה בבית המשפט. דין חוות הדעת זו כשהיא חתומה על ידי -כדין ',
+    ' עדות בשבועה שנתתי בבימ"ש . ',
     ' חוות הדעת נערכה לפי מיטב ידיעתי והכשרתי המקצועית, ומתוך אמונה כי העובדות שהובאו בחוות ',
     ' הדעת הינן אמת והמסקנות שהבענו נכונות הן . ',
     ' יש לציין כי כל הנתונים והממצאים המפורטים בדו"ח להלן תקפים אך ורק לתאריך בו בוצעה הבדיקה ',
@@ -218,7 +218,7 @@ doc.fillColor('black')
       }
   
       // Add the education item
-      doc.text(reverseWords(educationItem), 50, yPosition, { width: pageWidth, align: 'right' ,});
+      doc.text(reverseWords(' '+educationItem+' '), 50, yPosition, { width: pageWidth, align: 'right' ,});
   
       // Increment the yPosition for the next potential item
       yPosition += textHeight + 10; // adding some space between education entries

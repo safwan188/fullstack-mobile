@@ -1,0 +1,37 @@
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px; /* Space between inputs */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group button {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px; /* Space above the button */
+}
+
+.form-group button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Adjustments for the form submit button */
+.form-submit-button {
+  background-color: #008CBA; /* Blue background */
+  /* Rest of your styling for the submit button */
+}

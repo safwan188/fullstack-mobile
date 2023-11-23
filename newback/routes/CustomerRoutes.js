@@ -8,24 +8,24 @@ const { generatePDF } = require('../Middleware/pdfgenerator'); // Use correct pa
 const fs = require('fs');
 
 // Create a new customer
-router.post('/', customerController.createCustomer);
-router.post('/customerandproperty', customerController.createCustomerAndProperty);
-router.post('/customerandpropertymany', customerController.createMultipleCustomersAndProperties);
+router.post('/',[  authJwt.verifyToken], customerController.createCustomer);
+router.post('/customerandproperty', [  authJwt.verifyToken],customerController.createCustomerAndProperty);
+router.post('/customerandpropertymany', [  authJwt.verifyToken],customerController.createMultipleCustomersAndProperties);
 
 // Retrieve all customers
 router.get('/',[authJwt.verifyToken], customerController.getAllCustomers);
 
 // Retrieve a single customer by ID
-router.get('/:id', customerController.getCustomerById);
+router.get('/:id', [  authJwt.verifyToken],customerController.getCustomerById);
 
 // Retrieve properties by customer ID
-router.get('/:id/properties', customerController.getPropertyByCustomer);
+router.get('/:id/properties',[  authJwt.verifyToken], customerController.getPropertyByCustomer);
 
 
 // Update a customer by ID
-router.put('/:id', customerController.updateCustomer);
+router.put('/:id',[  authJwt.verifyToken], customerController.updateCustomer);
 
 // Delete a customer by ID
-router.delete('/:id', customerController.deleteCustomer);
+router.delete('/:id', [  authJwt.verifyToken],customerController.deleteCustomer);
 
 module.exports = router;

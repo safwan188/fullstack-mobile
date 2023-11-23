@@ -1,23 +1,32 @@
-/* ReportDetails.css */
 .reportdetails-container {
-  display: flex;
-  flex-direction: column;
+  direction: rtl; /* Right-to-left direction */
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  .reportdetails-header{
     direction: rtl;
-    width: 98%;
-  height: 100vh;
-  overflow-y: auto;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color:rgba(255, 255, 255, 0.981);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+    
   }
-  
+  .reportdetails-header h1{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+
   .reportdetails-grid {
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #f7f7f7;
+    height: 70vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    overflow-y: auto;
   }
   
   .reportdetail-item {
@@ -25,12 +34,13 @@
     flex-direction: column;
   }
   
-  .reportdetail-item label {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
+
   .reportdetail-item span,
+  .reportdetail-item-findings{
+    
+    display: flex;
+    flex-direction: column;
+  }
   .reportdetail-item ul {
     padding: 0.75rem;
     background-color: #f7f7f7;
@@ -64,7 +74,7 @@
     display: relative;
     flex-direction: row;
     justify-content: center; /* Center the button horizontally */
-    margin-top: 20px; /* Add some space above the button */
+    margin-top: 10px; /* Add some space above the button */
   }
   .btn-download {
     padding: 10px 20px;

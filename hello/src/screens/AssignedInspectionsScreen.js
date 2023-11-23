@@ -13,8 +13,14 @@ const AssignedInspectionsScreen = () => {
       // Call this function when the screen is focused
       const expertId = await AsyncStorage.getItem('expertId');
       if (expertId) {
+        try {
         const inspections = await apiReports.getReportsByExpertId(expertId);
         setAssignedInspections(inspections.data);
+        }
+        catch (error) {
+          console.error(error);
+        }
+        
       }
     });
     

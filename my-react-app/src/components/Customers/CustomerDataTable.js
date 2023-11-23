@@ -13,7 +13,7 @@ const CustomerDataTable = () => {
   const fetchCustomers = async () => {
     try {
       const response = await ApiCustomers.getAllCustomers();
-      setCustomers(response.data);
+      setCustomers(response.data.customers);
     } catch (error) {
       console.error("There was an error fetching the customers!", error);
     }

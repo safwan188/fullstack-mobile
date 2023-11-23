@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ApiReports from '../../api/ApiReports';
 import ApiExperts from '../../api/ApiExperts';
+import { useNavigate ,useLocation} from 'react-router-dom';
+
 import './AssignExpertForm.css';
 import SelectInput from '../base/SelectInput';
 const AssignExpertForm = () => {
@@ -9,6 +11,8 @@ const AssignExpertForm = () => {
   const [experts, setExperts] = useState([]);
   const [selectedExpert, setSelectedExpert] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
+  const navigate = useNavigate();
+  const imageUrlBase=process.env.REACT_APP_API_URL+'/';
   const { reportId } = useParams();
   const expertOptions = experts.map(expert => ({
     value: expert._id,
@@ -52,11 +56,13 @@ const AssignExpertForm = () => {
       return;
     }
     // Assuming your API expects a PUT request to update the report
-    ApiReports.updateReport(reportId, { expert: selectedExpert ,inspectionDate:selectedDate})
+    ApiReports.assigExpert(reportId, { expert: selectedExpert ,inspectionDate:selectedDate})
       .then(response => {
         // You can set the report with the new expert data or fetch it again
         setReport(prevState => ({ ...prevState, expert: response.data.expert }));
         alert("Expert assigned successfully");
+        navigate(`/reports`);
+
       })
       .catch(error => {
         console.error("Error updating report with new expert:", error);
@@ -89,6 +95,19 @@ const AssignExpertForm = () => {
             <input type="text" value={report.property.cityName} readOnly />
           </div>
         </div>
+        <div className="report-images">
+        <label>תמונות לקוח</label>
+
+  {report.clientPhotos && report.clientPhotos.map((photo, index) => (
+    
+    <img 
+      key={index} 
+      src={`${imageUrlBase}${photo}`} 
+      alt={`Report Image ${index + 1}`} 
+      style={{ width: '200px', height: '200px', objectFit: 'cover' }} // Fixed size with object-fit
+    />
+  ))}
+</div>
 
         <div className="form-row">
           <div className="assign-expert-form-group full-width">

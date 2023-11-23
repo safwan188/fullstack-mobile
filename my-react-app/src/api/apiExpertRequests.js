@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/expertrequests'; // Adjust to match your Express server's port and route
+const API_URL = process.env.REACT_APP_API_URL+'/api/expertrequests'; // Adjust to match your Express server's port and route
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
@@ -9,6 +9,7 @@ const axiosInstance = axios.create({
         'Content-Type': 'application/json',
     },
     });
+
 
 axiosInstance.interceptors.request.use(
     (config) => {
@@ -22,6 +23,9 @@ axiosInstance.interceptors.request.use(
         return Promise.reject(error);
     }
     );
+    
+    
+    
     const getAllExpertRequests = () => {
         return axiosInstance.get(API_URL);
     }

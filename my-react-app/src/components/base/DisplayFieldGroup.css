@@ -1,0 +1,17 @@
+.display-group {
+    margin-bottom: 1rem; /* Space between each display group */
+  }
+  
+  .display-group label {
+    font-weight: 600; /* Consistent with your label style */
+    margin-bottom: 0.5rem; /* Space between label and value */
+  }
+  
+  .display-group span {
+    padding: 0.75rem;
+    background-color: #f7f7f7; /* Light grey background */
+    border: 1px solid #ccc; /* Consistent with your other span elements */
+    border-radius: 4px; /* Rounded corners */
+    display: block; /* To ensure it takes the full width available */
+  }
+  

@@ -2,6 +2,8 @@
 // Import any necessary dependencies
 const Expert = require('../models/Experts');
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
+const saltRounds = 10; // or another number you prefer
 // Define controller methods
 const expertController = {
   // Get all experts
@@ -17,33 +19,41 @@ const expertController = {
   // Create multiple experts
   createMultipleExperts: async (req, res) => {
     const experts = req.body;
-
+    const saltRounds = 10; // Define the saltRounds for bcrypt
+  
     try {
-      // Save all the new experts
-      const newExperts = await Expert.insertMany(experts);
-
-      // Construct an array of usernames and passwords for the new experts
-      const users = newExperts.map((expert) => {
-        const username = expert.tz;
-        const password = expert.tz + expert.phone.slice(-3); // Assuming 'phone' is a string
-
-        return {
+      let newExperts = [];
+      let newUsers = [];
+  
+      for (const expert of experts) {
+        // Save each expert individually
+        const newExpert = new Expert(expert);
+        await newExpert.save();
+        newExperts.push(newExpert);
+  
+        // Create a corresponding user for each expert
+        const username = newExpert.tz;
+        const password = await bcrypt.hash(newExpert.tz + newExpert.phone.slice(-3), saltRounds);
+  
+        const newUser = new User({
           username: username,
-          password: password, // In a real-world scenario, you would hash this password before saving
-          userType: 'inspector'
-          ,name:expert.name
-        };
-      });
-
-      // Save all the new users
-      const newUsers = await User.insertMany(users);
-
-      // Respond with the new expert and user data
-      res.status(201).json({ experts: newExperts, users: newUsers });
+          password: password,
+          userType: 'inspector',
+          name: newExpert.name
+        });
+  
+        // Save each user individually
+        await newUser.save();
+        newUsers.push(newUser);
+      }
+  
+      // Respond with the new expert data
+      res.status(201).json({ message: 'Experts created successfully',});
     } catch (error) {
       res.status(400).json({ message: 'Failed to create experts.', error: error.message });
     }
   },
+  
 getExpertBytz: async (req, res) => {
     try {
       const expert = await Expert.findOne({tz:req.user.username});
@@ -83,7 +93,8 @@ createExpert: async (req, res) => {
       const user = new User({
         username: username,
         password: password, // In a real-world scenario, you would hash this password before saving
-        userType: 'inspector'
+        userType: 'inspector',
+        name:newExpert.name
       });
 
       // Save the new user
@@ -97,7 +108,13 @@ createExpert: async (req, res) => {
       res.status(500).json({ message: 'Failed to create user for expert, expert not saved.', error: userError.message });
     }
   } catch (error) {
-    res.status(400).json({ message: 'Failed to create expert.', error: error.message });
+    if (error.code === 11000) {
+      // Duplicate key error
+      res.status(409).json({ message: 'Expert already exists.', error: error.message });
+    } else {
+      res.status(400).json({ message: 'Failed to create expert.', error: error.message });
+    }
+  
   }
 },
 

@@ -7,36 +7,35 @@ const DateTimeField = ({ index, dateTime, handleDateTimeChange, removeDateTime }
   });
 
   
-  return (
-    <div className="date-time-row">
-    
-      <div className="report-form-group">
-      <label htmlFor={`reportDate${index}`}>תאריך בדיקה</label>
-        <input
-          type="date"
-          id={`reportDate${index}`}
-          value={dateTime.date}
-          onChange={(e) => handleDateTimeChange(index, 'date', e.target.value)}
-        />
-      </div>
-      <div className="report-form-group">
-      <label htmlFor={`reportTime${index}`}>שעת הבדיקה</label>
-        <select
-          id={`reportTime${index}`}
-          value={dateTime.time}
-          onChange={(e) => handleDateTimeChange(index, 'time', e.target.value)}
-        >
-          {hourOptions.map(hour => (
-            <option key={hour} value={hour}>{hour}</option>
-          ))}
-        </select>
-     
-      </div>
+ 
+    return (
+      <div className="date-time-row">
+        <div className="report-form-group">
+          <label htmlFor={`reportDate${index}`}>תאריך בדיקה</label>
+          <input
+            type="date"
+            id={`reportDate${index}`}
+            value={dateTime.date}
+            onChange={(e) => handleDateTimeChange(index, 'date', e.target.value)}
+          />
+        </div>
+        <div className="report-form-group">
+          <label htmlFor={`reportTime${index}`}>שעת הבדיקה</label>
+          <select
+            id={`reportTime${index}`}
+            value={dateTime.time}
+            onChange={(e) => handleDateTimeChange(index, 'time', e.target.value)}
+          >
+            {hourOptions.map(hour => (
+              <option key={hour} value={hour}>{hour}</option>
+            ))}
+          </select>
+        </div>
         <button type="button" onClick={() => removeDateTime(index)} className="report-form-remove-button">
-        X
-      </button>
-    </div>
-  );
-};
+          X
+        </button>
+      </div>
+    );
+  };
 
 export default DateTimeField;

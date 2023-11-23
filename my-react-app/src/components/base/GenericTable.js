@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchComponent from './SearchComponent'; // Adjust the path as necessary
-import '../styles/GenericTable.css';
+import './GenericTable.css';
 
 const GenericTable = ({ data, columns, columnDisplayNames, renderCell, title, buttonText, 
   onButtonClick  }) => {

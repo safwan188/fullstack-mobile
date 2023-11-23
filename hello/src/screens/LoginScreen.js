@@ -21,7 +21,7 @@ const LoginScreen = () => {
       navigation.navigate('InspectionsList');
       Alert.alert('Login successful', ` ברוך הבא ` +response.data.name);
     } catch (error) {
-      Alert.alert( ''+error);
+      Alert.alert( ''+error+error.message);
     }
   };
 

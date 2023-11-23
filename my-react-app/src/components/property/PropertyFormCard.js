@@ -3,6 +3,7 @@ import './PropertyFormCard.css'; // Make sure to create this CSS file for stylin
 import ApiProperty from '../../api/ApiProperty';
 import ApiCustomers from '../../api/ApiCustomers';
 import SelectInput from '../base/SelectInput';
+import FormGroup from '../base/FormGroup';
 const PropertyFormCard = () => {
   const [customers, setCustomers] = useState([]);
   const [selectedCustomerId, setSelectedCustomerId] = useState('');
@@ -14,7 +15,7 @@ const PropertyFormCard = () => {
   useEffect(() => {
     ApiCustomers.getAllCustomers()
       .then((response) => {
-        setCustomers(response.data);
+        setCustomers(response.data.customers);
         // Optionally set the first customer as selected by default
         if (response.data.length > 0) {
           setSelectedCustomerId(response.data[0]._id);
@@ -35,10 +36,12 @@ const PropertyFormCard = () => {
     };
     ApiProperty.createProperty(newProperty)
       .then((response) => {
+        alert('נכס נוסף בהצלחה');
         console.log('Property created:', response);
         // Additional logic after property creation
       })
       .catch((error) => {
+        alert('התרחשה שגיאה בהוספת הנכס');
         console.error("Error creating property:", error);
       });
   };
@@ -55,36 +58,35 @@ const PropertyFormCard = () => {
               value: customer._id,
               label: customer.name
             }))}
-            onChange={(e) => setSelectedCustomerId(e.target.value)}
+            onChange={(e) => {
+              console.log(e); // Check the structure of the event object
+              setSelectedCustomerId(e.value);
+            }}
+            
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="city">:עיר</label>
-          <input
-            type="text"
-            id="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="street">:רחוב</label>
-          <input
-            type="text"
-            id="street"
-            value={street}
-            onChange={(e) => setStreet(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="streetNumber">:מס בניין</label>
-          <input
-            type="text"
-            id="streetNumber"
-            value={propertyNumber}
-            onChange={(e) => setPropertyNumber(e.target.value)}
-          />
-        </div>
+        <FormGroup
+        label=":עיר"
+        inputType="text"
+        id="city"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+      />
+      <FormGroup
+        label=":רחוב"
+        inputType="text"
+        id="street"
+        value={street}
+        onChange={(e) => setStreet(e.target.value)}
+      />
+
+      <FormGroup
+        label=":מס בניין"
+        inputType="text"
+        id="streetNumber"
+        value={propertyNumber}
+        onChange={(e) => setPropertyNumber(e.target.value)}
+      />
         <button type="submit" className="form-submit-button">Submit</button>
       </form>
     </div>

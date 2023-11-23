@@ -1,7 +1,8 @@
-// src/components/CustomerFormCard.js
 import React, { useState } from 'react';
-import './CustomerFormCard.css'; // This should be your CSS file for the CustomerFormCard component
-import ApiCustomers from '../../api/ApiCustomers'; // Import your API service
+import './CustomerFormCard.css';
+import ApiCustomers from '../../api/ApiCustomers';
+import FormGroup from '../base/FormGroup';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const CustomerFormCard = () => {
   const [name, setName] = useState('');
@@ -11,61 +12,75 @@ const CustomerFormCard = () => {
   const [cityName, setCityName] = useState('');
   const [street, setStreet] = useState('');
   const [propertyNumber, setPropertyNumber] = useState('');
+  const navigate = useNavigate(); // Create navigate instance
+  const isHebrew = text => /^[\u0590-\u05FF0-9 ]+$/.test(text);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!isHebrew(name) || (addressInfoChecked && (!isHebrew(cityName) || !isHebrew(street)))) {
+      alert('אנא הזן טקסט בעברית בשדות הלא מספריים');
+      return;
+    }
+
+    if (addressInfoChecked && (!cityName.trim() || !street.trim() || !propertyNumber.trim())) {
+      alert('אנא מלא את כל שדות הכתובת');
+      return;
+    }
+
     const customerData = { 
       name,
       phone,
       tz,
       ...(addressInfoChecked && { cityName, street, propertyNumber })
     };
-    console.log('Customer Form submitted with:', customerData);
+
     try {
+      if (addressInfoChecked){
+        await ApiCustomers.createCustomerAndProperty(customerData);
+      }
+      else{
       await ApiCustomers.createCustomer(customerData);
+      }
+      alert('לקוח נוסף בהצלחה');
+      navigate('/customers'); // Or your desired route
     } catch (error) {
       console.error('There was an error submitting the form', error);
+      alert('התרחשה שגיאה בהוספת הלקוח');
     }
   };
 
   return (
     <div className="form-card">
       <form onSubmit={handleSubmit} className="form-card-content">
-      <h2 className="form-title">לקוח חדש</h2> {/* Add this line for the title */}
+        <h2 className="form-title">לקוח חדש</h2>
 
-      <div className="form-group">
-          <label htmlFor="name">שם</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required // to ensure the name is entered
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone">מספר טלפון</label>
-          <input
-            type="tel" // using type "tel" for phone numbers
-            id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required // to ensure the phone is entered
-            pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" // a pattern to accept various phone formats
-          />
-        </div>
-        {/* Time Zone field */}
-        <div className="form-group">
-          <label htmlFor="tz">תז\חפ</label>
-          <input
-            type="text"
-            id="tz"
-            value={tz}
-            onChange={(e) => setTz(e.target.value)}
-          />
-        </div>
+        <FormGroup
+          label="שם"
+          inputType="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
-        {/* Checkbox for Address Information */}
+        <FormGroup
+          label="מספר טלפון"
+          inputType="tel"
+          id="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+        />
+
+        <FormGroup
+          label="תז\חפ"
+          inputType="text"
+          id="tz"
+          value={tz}
+          onChange={(e) => setTz(e.target.value)}
+        />
+
         <div className="form-group">
           <label htmlFor="addressInfo">הוסף נכס ללקוח</label>
           <input
@@ -76,36 +91,32 @@ const CustomerFormCard = () => {
           />
         </div>
 
-        {/* Conditional Rendering for Address Fields */}
         {addressInfoChecked && (
           <>
-            <div className="form-group">
-              <label htmlFor="cityName">עיר</label>
-              <input
-                type="text"
-                id="cityName"
-                value={cityName}
-                onChange={(e) => setCityName(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="street">כביש</label>
-              <input
-                type="text"
-                id="street"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="propertyNumber">מספר נכס</label>
-              <input
-                type="text"
-                id="propertyNumber"
-                value={propertyNumber}
-                onChange={(e) => setPropertyNumber(e.target.value)}
-              />
-            </div>
+            <FormGroup
+              label="עיר"
+              inputType="text"
+              id="cityName"
+              value={cityName}
+              onChange={(e) => setCityName(e.target.value)}
+              required
+            />
+            <FormGroup
+              label="כביש"
+              inputType="text"
+              id="street"
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
+              required
+            />
+            <FormGroup
+              label="מספר נכס"
+              inputType="text"
+              id="propertyNumber"
+              value={propertyNumber}
+              onChange={(e) => setPropertyNumber(e.target.value)}
+              required
+            />
           </>
         )}
 

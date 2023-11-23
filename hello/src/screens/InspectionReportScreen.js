@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import apiReports from '../API/apiReports';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Alert,ImageBackground,Dimensions } from 'react-native';
    const options = {
       mediaType: 'photo',
@@ -77,12 +79,13 @@ const InspectionReportScreen = ({ route, navigation }) => {
       });
   
       const reportId = report._id; // Replace with actual report ID variable
-      const updateUrl = `http://10.0.2.2:5000/api/reports/findings/${reportId}`;
-  
+      const updateUrl = `https://shark-server-9cc777312ecd.herokuapp.com/api/reports/findings/${reportId}`;
+        const token = await AsyncStorage.getItem('token');
       const response = await fetch(updateUrl, {
         method: 'PUT',
         headers: {
           Accept: 'application/json',
+          authorization: `Bearer ${token}`,
         },
         body: formData,
       });
@@ -134,57 +137,58 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   container: {
-    verticalAlign: 'center',
     flex: 1,
     padding: 20,
-    backgroundColor: 'rgba(255,255,255,0.5)', // Use a subtle background color
+    backgroundColor: 'rgba(255,255,255,0.85)', // Slightly more opaque for better readability
   },
   title: {
-    fontSize: 26, // Larger font size for titles
+    fontSize: 28, // Slightly larger and more prominent
     fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#333', // Dark grey for text for better readability
-    textAlign: 'center', // Center the titles
+    marginBottom: 30, // More space below the title
+    color: '#004ba0', // A strong, consistent color for the title
+    textAlign: 'center',
   },
   imageContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    marginBottom: 20, // Add space below the image container
+    justifyContent: 'center', // Center images in the view
+    marginBottom: 20,
   },
   image: {
-    width: 100,
-    height: 100,
-    margin: 10,
-    borderRadius: 5, // Round the corners of images
+    width: 110, // Slightly larger images
+    height: 110,
+    margin: 5,
+    borderRadius: 10, // More pronounced rounded corners
+    borderWidth: 1, // Add a border for better definition
+    borderColor: '#ddd',
   },
   textFieldContainer: {
-    marginBottom: 10, // Add space below each text field container
+    marginBottom: 15,
   },
   textField: {
-    flex: 1,
     borderWidth: 1,
-    borderColor: '#DDD', // Lighter border color
-    backgroundColor: '#FFF', // White background for text fields
-    borderRadius: 5, // Round the corners of text fields
-    padding: 15, // More padding for larger touch area
-    fontSize: 16, // Larger font size for text inputs
-    color: '#333', // Dark grey color for input text
-    marginBottom: 10, // Space below the text field
+    borderColor: '#cccccc', // Subtler border color
+    backgroundColor: '#fff', // Pure white background
+    borderRadius: 8, // Consistent rounded corners
+    padding: 10, // Comfortable padding
+    fontSize: 16, // Readable font size
+    color: '#333', // Standard text color for better contrast
+    marginBottom: 10,
   },
   button: {
-    backgroundColor: '#005f73', // A professional blue shade for buttons
-    color: '#FFF', // White text color for buttons
-    padding: 15, // Padding inside the buttons
-    borderRadius: 5, // Round the corners of buttons
-    marginVertical: 10, // Vertical space around the buttons
+    backgroundColor: '#007bff', // Vibrant blue for primary action
+    borderRadius: 8, // Rounded corners
+    padding: 12, // Adequate padding
+    marginTop: 10, // Space above the button
+    marginBottom: 20, // Space below the button
   },
   buttonText: {
-    fontSize: 18, // Larger font size for button text
-    fontWeight: 'bold', // Bold font weight for button text
-    textAlign: 'center', // Center the text inside buttons
+    color: 'white', // White text for contrast
+    fontSize: 18, // Readable font size
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
+  // Add any additional styles if needed
 });
 
 export default InspectionReportScreen;

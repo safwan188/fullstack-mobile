@@ -15,11 +15,7 @@ const Drawer = createDrawerNavigator();
 function MainStackNavigator() {
   return (
     <Stack.Navigator options={{}}>
-        <Stack.Screen 
-        name="Login" 
-        component={LoginScreen} 
-        options={{ headerShown: false ,}} // This hides the navigation bar on the Login screen
-      />
+      
       <Stack.Screen name="InspectionsList" component={InspectionsListScreen}  options={{ headerShown: false ,}} />
       <Stack.Screen name="InspectionDetails" component={InspectionDetailScreen}  options={{ headerShown: false ,}} />
       <Stack.Screen name="AssignedInspections" component={AssignedInspectionsScreen}  options={{ headerShown: false ,}} />
@@ -33,21 +29,63 @@ function MainStackNavigator() {
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-       {/* The MainStackNavigator contains the rest of your stack screens */}
+      {/* The MainStackNavigator contains the rest of your stack screens */}
       <Drawer.Navigator>
-     
         {/* The drawer navigator contains the drawer screens */}
-    
-
-        <Drawer.Screen name="main" component={MainStackNavigator}  options={{ headerShown:true,title:' ',headerTransparent:true } }/>
-       <Drawer.Screen name="InspectionsList" component={InspectionsListScreen}  options={{ headerShown:true,title :'דוחות פתוחות',headerTransparent:false ,drawerLabel:'S דוחות חדשים ' ,headerTransparent:true} }/>
-        
-        <Drawer.Screen name="AssignedInspections" component={AssignedInspectionsScreen} options={{ headerShown:true,title:'דוחות שלי',headerTransparent:false,drawerLabel:' S דוחות שלי'  ,headerTransparent:true} }/>
-       
+        <Drawer.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{ 
+            headerShown: false,
+            drawerItemStyle: { display: 'none' } // This hides the screen from the drawer
+          }}
+        />
+        {/* Hide main stack from the drawer */}
+          
+        <Drawer.Screen 
+          name="InspectionsList" 
+          component={InspectionsListScreen}  
+          options={{ 
+            headerShown: true,
+            title: 'דוחות פתוחות',
+            headerTransparent: false,
+            drawerLabel: 'דוחות פתוחות', // Set drawerLabel to an empty string to hide from the sidebar
+          }}
+        />
+        <Drawer.Screen 
+          name="AssignedInspections" 
+          component={AssignedInspectionsScreen} 
+          options={{ 
+            headerShown: true,
+            title: 'דוחות שלי',
+            headerTransparent: false,
+            drawerLabel: 'דוחות שלי', 
+          }}
+        />
         {/* You can add more drawer screens if needed */}
-      </Drawer.Navigator>
-    
+        <Drawer.Screen 
+           name="InspectionDetails" 
+           component={InspectionDetailScreen} 
+           options={{ 
+             headerShown: true,
+             title: 'פרטי דוח',
+             headerTransparent: false,
+             drawerItemStyle: { display: 'none' } // This hides the screen from the drawer
 
+           }}
+          />
+           <Drawer.Screen 
+           name="InspectionReport" 
+           component={InspectionReportScreen} 
+           options={{ 
+             headerShown: true,
+             title: 'ממצאי בדיקה',
+             headerTransparent: false,
+             drawerItemStyle: { display: 'none' } // This hides the screen from the drawer
+
+           }}
+          />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };

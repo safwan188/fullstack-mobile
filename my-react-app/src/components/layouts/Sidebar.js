@@ -10,9 +10,7 @@ const Sidebar = () => {
       </div>
       <nav>
         <ul className="sidebar-nav">
-          <li className="nav-item">
-            <Link to="/">ראשי</Link>
-          </li>
+         
           <li className="nav-item">
             <Link to="/reports">דוחות</Link>
           </li>

@@ -7,19 +7,19 @@ import ReportDataTable from './components/reports/ReportDataTable';
 import ReportFormCard from './components/reports/ReportFormCard';
 import ExpertFormCard from './components/experts/ExpertFormCard';
 import ExpertDataTable from './components/experts/ExpertDataTable';
-import EquipmentDataTable from './components/Equipment/EquipmentDataTable';
-import EquipmentFormCard from './components/Equipment/EquipmentFormCard';
+
 import PropertyDataTable from './components/property/PropertyDataTable';
 import PropertyFormCard from './components/property/PropertyFormCard';
 import CustomerDataTable from './components/Customers/CustomerDataTable';
 import ReportLayout from './components/layouts/ReportLayout';
 // Sample data for DataTable
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/layouts/Sidebar';
 import CustomerFormCard from './components/Customers/CustomerFormCard';
 import AssignExpertForm from './components/reports/AssignExpertForm';
 
 import ExpertRequestDataTable from './components/expertrequests/ExpertRequestDataTable';
 import ReportDetails from './components/reports/ReportDetails';
+
 function App() {
   
 
@@ -35,8 +35,6 @@ function App() {
         <Route path="/customers" element={<ReportLayout><CustomerDataTable />  <Sidebar></Sidebar></ReportLayout>} />
         <Route path="/property" element={<ReportLayout><PropertyDataTable/><Sidebar></Sidebar></ReportLayout>} />
         <Route path="/propertyform" element={<ReportLayout><PropertyFormCard /><Sidebar></Sidebar></ReportLayout>} /> {/* New route for the form */}
-        <Route path="/equipmentform" element={<ReportLayout><EquipmentFormCard /><Sidebar></Sidebar></ReportLayout>} /> {/* New route for the form */}
-        <Route path="/equipment" element={<ReportLayout><EquipmentDataTable  /><Sidebar></Sidebar></ReportLayout>} />
         <Route path="/expertsform" element={<ReportLayout><ExpertFormCard /><Sidebar></Sidebar></ReportLayout>} /> {/* New route for the form */}
         <Route path="/experts" element={<ReportLayout><ExpertDataTable  />
         <Sidebar></Sidebar></ReportLayout>} />

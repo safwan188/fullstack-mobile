@@ -56,7 +56,7 @@ const InspectionDetailScreen = ({ route, navigation }) => {
             ))}
           </View>
           <Text style={styles.dateText}>{`תאריך שבחרת: ${selectedDate ? new Date(selectedDate).toLocaleDateString() : 'None'}`}</Text>
-          <Button title="Confirm Date" onPress={confirmDate} />
+          <Button title="שמור" onPress={confirmDate} />
         </>
       ) : (
         <Text>No available dates.</Text>
@@ -94,38 +94,40 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   container: {
-    height: height,
-    padding: 20,
-    backgroundColor: 'rgba(255,255,255,0.79)', // A clean white background
-
+    flex: 1, // Use flex to manage the layout
+    paddingHorizontal: 20, // Horizontal padding
+    paddingTop: 40, // Padding at the top for some breathing room
+    backgroundColor: 'rgba(255,255,255,0.8)', // Slightly more transparent white
   },
   title: {
-    marginTop: 40, // Add some space at the top
-    fontSize: 24,
+    fontSize: 26, // Slightly larger font size
     fontWeight: 'bold',
-    marginBottom: 20, // Add some space below the title
-    color: '#004ba0', // A strong blue for titles
+    marginBottom: 25,
+    color: '#0056b3', // Adjusted blue color for better visibility
+    textAlign: 'center', // Center align the title
   },
   text: {
-    fontSize: 20, // Standard text size
-    marginBottom: 20, // Space below each text
-    color: '#333333', // Dark grey color for text for better readability
+    fontSize: 18,
+    marginBottom: 15,
+    color: '#333', // Slightly darker for better readability
+    lineHeight: 24, // Line height for better text readability
   },
   dateContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    paddingVertical: 30,
+    marginVertical: 20,
   },
   dateButton: {
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     margin: 5,
-    backgroundColor: '#e0f7fa', // A light blue background for date buttons
-    borderRadius: 5,
+    backgroundColor: '#f0f4f8', // Subtle background color
+    borderRadius: 8, // Rounded corners
   },
   dateText: {
     fontSize: 16,
-    color: '#0277bd', // Darker blue for the date text
+    color: '#0277bd',
   },
   centeredView: {
     flex: 1,
@@ -151,9 +153,9 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#004ba0', // Blue color for modal text
+    color: '#004ba0',
   },
   button: {
     borderRadius: 20,
@@ -161,7 +163,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#007bff', // More vibrant blue
     marginTop: 15,
   },
   textStyle: {
@@ -169,7 +171,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  // Add any additional styles if needed
 });
-    
+
     export default InspectionDetailScreen;

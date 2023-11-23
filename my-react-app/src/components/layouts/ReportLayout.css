@@ -13,7 +13,7 @@ scroll-behavior: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  overflow-y: none;
   background-attachment: fixed;
   bottom: 0px;
 }

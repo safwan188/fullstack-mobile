@@ -34,6 +34,7 @@
   position: sticky; /* Sticky position for headers */
   top: 0; /* Stick to the top */
   z-index: 10; /* Ensure it stays on top of other elements */
+
 }
 
 .generic-table td {
@@ -82,4 +83,43 @@
 .generic-table-button:hover {
   background-color: #2a3d8f; /* Darker shade on hover */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.action-button-open {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.action-button-assigned {
+  background-color: #f44336; /* Red */
+
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.action-button-closed {
+  background-color: #008CBA; /* Blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

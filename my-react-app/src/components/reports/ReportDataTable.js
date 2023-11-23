@@ -20,10 +20,7 @@ const ReportDataTable = () => {
   const handleNavigateToForm = () => {
     navigate('/reportsform');
   };
-  const handleActionClick = (id, action) => {
-    // Here you can define what happens when a button is clicked
-    console.log(`Action "${action}" for report with ID: ${id}`);
-  };
+
   const handleNavigateToAssignExpert = (reportId) => {
     navigate(`/reports/${reportId}/assign-expert`);
   };
@@ -36,7 +33,7 @@ const ReportDataTable = () => {
       case 'open':
         return <button className="action-button-open" onClick={() => handleNavigateToAssignExpert(id)}>   לחוץ לקבוע טכנאי</button>;
       case 'assigned':
-        return <button className="action-button-assigned"  onClick={() => handleActionClick(id, 'in-progress')} > בטיפול טכנאי</button>;
+        return <button className="action-button-assigned"  onClick={() => handleNavigateToReportDetails(id)} > בטיפול טכנאי</button>;
       case 'completed':
         return <button  className="action-button-closed" onClick={() =>handleNavigateToReportDetails(id)}>הושלם</button>;
       default:
