@@ -30,55 +30,63 @@ This project, designed specifically for a family-run plumbing business, implemen
 
 ### Installation and Setup
 
-#Clone the repository and follow the setup instructions for each component:
-**backend:
-**npm install
-**create new file .env and configure following env variables
-**MONGODB_URI=
-**PORT=
-**JWT_SECRET=
-**ADMIN_PASSWORD=
-```
-```
+Clone the repository and follow the setup instructions for each component:
 
-**for front end npm install
-**create .env and configute following  :
-**REACT_APP_API_URL=
-**for app:
-**npm start  
-**i to run ios
-**a to run android
-**make sure your emulater is running 
-project flow:
+#### Backend:
+- Run `npm install`
+- Create a new file `.env` and configure the following environment variables:
+  - `MONGODB_URI=`
+  - `PORT=`
+  - `JWT_SECRET=`
+  - `ADMIN_PASSWORD=`
 
+#### Frontend:
+- Run `npm install`
+- Create `.env` and configure the following:
+  - `REACT_APP_API_URL=`
 
+#### App:
+- Run `npm start`
+- For iOS, run `i`
+- For Android, run `a`
+- Make sure your emulator is running
 
-**manager login:
+### Project Flow:
+
+#### Manager Login:
 ![Screenshot 1](/screenshots/1.png)
-** reports table
-![Screenshot 2](/screenshots/2.png)
-** new reports
-![Screenshot 3](/screenshots/2.5.png)
-![Screenshot 3](/screenshots/2.7.png)
-** app login
-![Screenshot 11](/screenshots/3.jpg)
-![Screenshot 10](/screenshots/4.jpg)
-** choosing a date and making a request
-![Screenshot 4](/screenshots/5.jpg)
-![Screenshot 5](/screenshots/6.jpg)
-accepting the request
-![Screenshot 7](/screenshots/7.png)
-report appear in my reports screen for the assigned expert 
-![Screenshot 8](/screenshots/8.jpg)
-expert upload findings and photos
-![Screenshot 11](/screenshots/9.jpg)
-completed report screen 
-![Screenshot 10](/screenshots/10.png)
-downloading the generated pdf for the report:
-![Screenshot 4](/screenshots/11.png)
-![Screenshot 5](/screenshots/12.png)
-![Screenshot 7](/screenshots/13.png)
 
+#### Reports Table:
+![Screenshot 2](/screenshots/2.png)
+
+#### New Reports:
+![Screenshot 3](/screenshots/2.5.png)
+![Screenshot 4](/screenshots/2.7.png)
+
+#### App Login:
+![Screenshot 5](/screenshots/3.jpg)
+![Screenshot 6](/screenshots/4.jpg)
+
+#### Choosing a Date and Making a Request:
+![Screenshot 7](/screenshots/5.jpg)
+![Screenshot 8](/screenshots/6.jpg)
+
+#### Accepting the Request:
+![Screenshot 9](/screenshots/7.png)
+
+#### Report Appear in 'My Reports' Screen for the Assigned Expert:
+![Screenshot 10](/screenshots/8.jpg)
+
+#### Expert Upload Findings and Photos:
+![Screenshot 11](/screenshots/9.jpg)
+
+#### Completed Report Screen:
+![Screenshot 12](/screenshots/10.png)
+
+#### Downloading the Generated PDF for the Report:
+![Screenshot 13](/screenshots/11.png)
+![Screenshot 14](/screenshots/12.png)
+![Screenshot 15](/screenshots/13.png)
 
 
 
