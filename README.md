@@ -67,7 +67,7 @@ make sure your emulater is running
 ![Screenshot 10](/screenshots/10.png)
 ![Screenshot 4](/screenshots/11.png)
 ![Screenshot 5](/screenshots/12.png)
-![Screenshot 7](/screenshots/12.png)
+![Screenshot 7](/screenshots/13.png)
 
 
 
