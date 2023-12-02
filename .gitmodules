@@ -1,3 +1,9 @@
 [submodule "my-react-app"]
 	path = my-react-app
 	url = https://github.com/safwan188/my-react-app.git
+[submodule "shark-back"]
+	path = shark-back
+	url = https://github.com/safwan188/shark-back.git
+[submodule "sharkapp"]
+	path = sharkapp
+	url = https://github.com/safwan188/sharkapp.git
