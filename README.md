@@ -31,5 +31,27 @@ This project, designed specifically for a family-run plumbing business, implemen
 ### Installation and Setup
 
 Clone the repository and follow the setup instructions for each component:
+backend:
+npm install
+create new file .env and configure following env variables
+MONGODB_URI=
+PORT=
+JWT_SECRET=
+ADMIN_PASSWORD=
+```
+```
+
+for front end npm install
+create .env and configute following  :
+REACT_APP_API_URL=
+for app:
+npm start  
+i to run ios
+a to run android
+make sure your emulater is running 
+
+
+
+
 
 
