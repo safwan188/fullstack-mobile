@@ -30,7 +30,7 @@ This project, designed specifically for a family-run plumbing business, implemen
 
 ### Installation and Setup
 
-**Clone the repository and follow the setup instructions for each component:
+#Clone the repository and follow the setup instructions for each component:
 **backend:
 **npm install
 **create new file .env and configure following env variables
