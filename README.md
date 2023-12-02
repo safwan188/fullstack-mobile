@@ -3,28 +3,27 @@ for live demo for react + node visit: https://shark-front-c6381df85aaa.herokuapp
 username:admin  
 password:shark123
 
-
 Plumbing Inspection Workflow System
-Description
-This project is a multi-component system designed to streamline the workflow of plumbing inspections for a family-run plumbing business. It consists of three main parts: a server, a web frontend, and a mobile application. The system automates the generation of detailed PDF reports, enhancing the efficiency and organization of the inspection process.
+Overview
+This project, designed specifically for a family-run plumbing business, implements a comprehensive system to manage plumbing inspections. It comprises three primary components: a server, a web frontend, and a mobile application, each tailored to streamline workflow, facilitate communication between managers and experts, and automate the generation of detailed inspection reports.
 
-Components
-Server: Built using Node.js.
-Frontend: Developed with React, designed for managers.
-Mobile App: Intended for expert use, available unlisted on the App Store.
-Key Features
-Manager Dashboard: Add and manage experts, customers, properties, and inspection reports.
-Dynamic Reports: Supports adding multiple dates, subjects, descriptions, and attaching customer-provided photos.
-Expert App: Experts can view open reports, select inspection dates, and submit requests for manager approval.
-Assignment Flexibility: Managers can accept expert requests or assign experts manually.
-Report Completion: Experts upload findings and photos, marking reports as completed.
-PDF Generation: Automated creation of comprehensive PDF reports with all details.
-Technologies Used
+Features
+Manager Dashboard (Web Frontend): Built with React, enables managers to add and manage experts, customers, properties, and inspection reports.
+Expert Application (Mobile App): Allows experts to view and select open reports, and submit their inspection dates for manager approval.
+Report Management: Dynamic report creation including scheduling, subject and description input, and photo attachments.
+Task Assignments: Managers can assign reports to experts either automatically (based on expert requests) or manually.
+Inspection Reporting: Experts can upload their findings and photos to the report and mark it as completed.
+Automated PDF Generation: The system generates detailed PDF reports, compiling all relevant information.
+Technology Stack
 Frontend: React
 Backend: Node.js
 Database: MongoDB
 Image Storage: Google Cloud Bucket
-Hosting: Heroku (for demo purposes)
-CI/CD: Git with CI/CD tools
-Mobile App: Published unlisted on the App Store
+Hosting: Heroku (Demo)
+Version Control and CI/CD: Git with CI/CD integration
+Mobile App Deployment: Published unlisted on the App Store
 Getting Started
+Prerequisites
+Ensure you have Node.js, MongoDB, and React installed on your system to run the project components.
+
+Installation and Setup
