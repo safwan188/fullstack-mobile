@@ -1,0 +1,3 @@
+[submodule "my-react-app"]
+	path = my-react-app
+	url = https://github.com/safwan188/my-react-app.git
