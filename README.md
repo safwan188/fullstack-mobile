@@ -26,20 +26,10 @@ This project, designed specifically for a family-run plumbing business, implemen
 - **Image Storage:** Google Cloud Bucket
 - **Hosting:** Heroku (Demo)
 - **Version Control and CI/CD:** Git with CI/CD integration
-- **Mobile App Deployment:** Published unlisted on the App Store
-
-## Getting Started
-
-### Prerequisites
-
-Ensure you have Node.js, MongoDB, and React installed on your system to run the project components.
+- **Mobile App Deployment:** react-native Published unlisted on the App Store
 
 ### Installation and Setup
 
 Clone the repository and follow the setup instructions for each component:
 
-```bash
-git clone https://github.com/yourusername/plumbing-inspection-system.git
-cd plumbing-inspection-system
-# Follow specific installation instructions for server, frontend, and app
 
